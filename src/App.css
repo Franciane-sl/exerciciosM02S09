@@ -44,7 +44,7 @@
   margin-top: 5px;
   height: 28px;
   outline: none;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   box-sizing: border-box;
 }
 
@@ -64,5 +64,6 @@
   font: 12px;
   font-weight: bold;
   color: rgb(87, 86, 86);
-
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
