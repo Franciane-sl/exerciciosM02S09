@@ -6,6 +6,7 @@ function App() {
 
   const [titulo, setTitulo] = useState('');
   const [descricao, setDescricao] = useState('');
+  const [url, setUrl] = useState('');
 
   return (
     <>   
@@ -19,18 +20,25 @@ function App() {
 
           <h3>Novo Post</h3>
 
-           <label htmlFor="titulo">Titulo</label>
+           <label htmlFor="titulo"> Titulo </label>
            <input type="text" id="titulo" value={titulo}
             onChange={(e) =>{
-            setTitulo(e.target.value);  
-           }}/>
+            setTitulo(e.target.value);}}
+            placeholder='Titulo'
+           />
 
-           <label htmlFor="descricao">Descrição</label>
+           <label htmlFor="descricao"> Descrição </label>
            <textarea id= "descricao" value={descricao}
             onChange={(e) => {
-            setDescricao(e.target.value);
-           }}
-           
+            setDescricao(e.target.value);}}
+            placeholder='Descrição' 
+            />
+
+           <label htmlFor="url"> Url da imagem de capa </label>
+           <input type="url" id="url" value={url}
+           onChange={(e) => {
+            setUrl(e.target.value);}}
+            placeholder='Url da imagem de capa'
            />
            
 
