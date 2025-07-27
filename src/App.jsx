@@ -7,6 +7,7 @@ function App() {
   const [titulo, setTitulo] = useState('');
   const [descricao, setDescricao] = useState('');
   const [url, setUrl] = useState('');
+  const [data, setData] = useState('');
 
   return (
     <>   
@@ -40,6 +41,11 @@ function App() {
             setUrl(e.target.value);}}
             placeholder='Url da imagem de capa'
            />
+
+           <label htmlFor="dataDePublicacao"> Data de publicação</label>
+           <input type="date" id="dataDePublicacao" value={data}
+           onChange={(e) => {setData(e.target.value);
+           }}/>
            
 
         </form>
