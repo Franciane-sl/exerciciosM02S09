@@ -8,6 +8,7 @@ function App() {
   const [descricao, setDescricao] = useState('');
   const [url, setUrl] = useState('');
   const [data, setData] = useState('');
+  const [type, setType] = useState('');
 
   return (
     <>   
@@ -42,10 +43,22 @@ function App() {
             placeholder='Url da imagem de capa'
            />
 
-           <label htmlFor="dataDePublicacao"> Data de publicação</label>
+           <label htmlFor="dataDePublicacao"> Data de publicação </label>
            <input type="date" id="dataDePublicacao" value={data}
            onChange={(e) => {setData(e.target.value);
            }}/>
+
+           <label htmlFor="categoria"> Categoria </label>
+           <select name="categoria" id="categoria"
+           value={type} onChange={(e) => {setType(e.target.value);
+           }}>
+            <option value=""> Selecione uma opção </option>
+            <option value="artigo"> Artigo </option>
+            <option value="noticia"> Notícia </option>
+            <option value="tutorial"> Tutorial </option>
+            <option value="entrevista"> Entrevista </option>
+
+           </select>
            
 
         </form>
