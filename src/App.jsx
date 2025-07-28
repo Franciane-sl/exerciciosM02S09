@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css'
+import {ToastContainer, toast} from "react-toastify";
 
 
 function App() {
@@ -10,6 +11,37 @@ function App() {
   const [data, setData] = useState('');
   const [type, setType] = useState('');
 
+  function SalvarNovoPost(e) {
+    e.preventDefault();
+
+    const dataAtual= new Date();
+    dataAtual.setHours(0, 0, 0, 0)
+
+    const dataSelecionada = new Date(data);
+
+    if (titulo === "") {
+      toast.error("O titulo não pode está vazio.");
+
+    }else if(descricao === "") {
+      toast.error("A descrição não pode está vazia.")
+
+    }else if(!url.startsWith('http://') && !url.startsWith('https://')){
+      toast.error(" A URL da imagem deve começar com htpp:// ou htpps://")
+
+    }else if(type == ""){
+      toast.error(" Por favor, selecione uma categoria.")
+
+    }else if(dataSelecionada < dataAtual) {
+      toast.error("A data da publicação deve está no presente ou no futuro.")
+
+    }else{
+      toast.success("Post criado com sucesso.")
+    }
+    
+    
+  
+  }
+
   return (
     <>   
     <main className="container">
@@ -18,7 +50,7 @@ function App() {
 
         <h1>Painel de Gerenciamento</h1>
 
-        <form className='form'>
+        <form className='form' onSubmit={SalvarNovoPost}>
 
           <h3>Novo Post</h3>
 
@@ -58,10 +90,11 @@ function App() {
             <option value="tutorial"> Tutorial </option>
             <option value="entrevista"> Entrevista </option>
 
-           </select>
-           
-
+          </select>
+          <button type='submit'> Salvar </button>
+      
         </form>
+        <ToastContainer />
       </article>
     </main>   
     </>
