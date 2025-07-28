@@ -35,11 +35,29 @@ function App() {
       toast.error("A data da publicação deve está no presente ou no futuro.")
 
     }else{
-      toast.success("Post criado com sucesso.")
+      const novoPost = {
+        titulo,
+        descricao,
+        url,
+        data,
+        type
+      };
+
+      const postsSalvos = JSON.parse(localStorage.getItem("posts") || "[]");
+
+      postsSalvos.push(novoPost);
+
+      localStorage.setItem("posts", JSON.stringify(postsSalvos));
+
+      setTitulo('');
+      setDescricao('');
+      setUrl('');
+      setData('');
+      setType('');
+
+      toast.success("Post criado com sucesso!");
+
     }
-    
-    
-  
   }
 
   return (
