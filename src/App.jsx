@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css'
 import {ToastContainer, toast} from "react-toastify";
 
@@ -10,6 +10,12 @@ function App() {
   const [url, setUrl] = useState('');
   const [data, setData] = useState('');
   const [type, setType] = useState('');
+  const [quantidadePosts, setQuantidadePosts] = useState(0);
+
+  useEffect(() => {
+    const postsSalvos = JSON.parse(localStorage.getItem("posts") || "[]");
+    setQuantidadePosts(postsSalvos.length);
+  }, []);
 
   function SalvarNovoPost(e) {
     e.preventDefault();
@@ -67,6 +73,7 @@ function App() {
       <article className='article'>
 
         <h1>Painel de Gerenciamento</h1>
+        <p>Total de posts: <strong>{quantidadePosts}</strong></p>
 
         <form className='form' onSubmit={SalvarNovoPost}>
 
