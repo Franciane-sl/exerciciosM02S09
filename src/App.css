@@ -1,0 +1,105 @@
+#root {
+  background-color: rgb(221, 219, 219);
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: rgb(87, 86, 86);
+  margin-bottom: 20px;
+  margin: 10px;
+ 
+}
+
+.form {
+  width: 60%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  border: 1px rgb(175, 174, 174) solid;
+  color:rgb(87, 86, 86);
+}
+
+.form h3 {
+  font-weight: bold;
+  font-size: 17px;
+  color: rgb(87, 86, 86);
+  margin-bottom: 10px;
+}
+
+.form input{
+  width: 100%;
+  border: 1px rgb(175, 174, 174) solid;
+  margin-top: 5px;
+  height: 28px;
+  outline: none;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.form textarea {
+  width: 100%;
+  border: 1px rgb(175, 174, 174) solid;
+  box-sizing: border-box;
+  margin-top: 5px;
+  outline: none;
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100px;
+  min-height: 100px;
+  border-radius: 4px;
+}
+
+.form input:focus , textarea:focus {
+  border: 2px rgb(87, 86, 86) solid;
+}
+
+.form label {
+  font: 12px;
+  font-weight: bold;
+  color: rgb(87, 86, 86);
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.form select {
+   width: 100% ;
+   border: 1px rgb(175, 174, 174) solid;
+   height: 28px;
+   padding: 4px 8px;
+   border-radius: 4px;
+   color : rgb(87, 86, 86);
+   margin-top: 5px;
+   margin-bottom: 5px;
+   outline: none;
+}
+
+.form select:focus {
+  border: 2px rgb(175, 174, 174) solid;
+}
+
+.form button {
+  padding: 6px 12px;
+  margin: 10px 0;
+  width: auto;
+  min-width: 120px;
+  text-align: center;
+  border: 2px rgb(175, 174, 174) solid;
+  border-radius: 4px;
+  align-self: center;
+  background-color: rgb(221, 219, 219);
+  color : rgb(87, 86, 86);
+}
+
