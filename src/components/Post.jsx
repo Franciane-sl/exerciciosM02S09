@@ -1,6 +1,6 @@
 import style from './Post.module.css';
 
-function Post({ tipo, titulo, descricao, data, url }) {
+function Post({id, tipo, titulo, descricao, data, url, handleDelete }) {
   return (
     <section className={style.sectionPost}>
       <img src={url} alt={`Imagem do post ${titulo}`} />
@@ -9,6 +9,8 @@ function Post({ tipo, titulo, descricao, data, url }) {
         <h2>{titulo}</h2>
         <p>{descricao}</p>
         <p><strong>Data de publicação:</strong> {data}</p>
+        <button type='button' onClick={() => 
+        handleDelete(id)}>Excluir</button>
       </div>
     </section>
   );

@@ -12,16 +12,24 @@ function PostsList() {
     }
   }, []);
 
+  function handleDelete(excluir) {
+    const novaLista = posts.filter(post => post.id !== excluir);
+    setPosts(novaLista);
+    localStorage.setItem("posts", JSON.stringify(novaLista));
+  }
+
   return (
     <>
-      {posts.map((post, index) => (
+      {posts.map((post) => (
         <Post
-          key={index}
+          key={post.id}
+          id={post.id}
           tipo={post.type}
           titulo={post.titulo}
           descricao={post.descricao}
           data={post.data}
           url={post.url}
+          handleDelete={handleDelete}
         />
       ))}
     </>
