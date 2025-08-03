@@ -11,11 +11,30 @@ function App() {
   const [data, setData] = useState('');
   const [type, setType] = useState('');
   const [quantidadePosts, setQuantidadePosts] = useState(0);
+  const [quantidadePostArtigo, setQuantidadePostArtigo] = useState(0);
+  const [quantidadePostNoticia, setQuantidadePostNoticia] = useState(0);
+  const [quantidadePostTutorial, setQuantidadePostTutorial] = useState(0);
+  const [quantidadePostEntrevista, setQuantidadePostEntrevista] = useState(0);
 
   useEffect(() => {
     const postsSalvos = JSON.parse(localStorage.getItem("posts") || "[]");
     setQuantidadePosts(postsSalvos.length);
+
+    const artigosSalvos = postsSalvos.filter(post => post.type === "artigo");
+    setQuantidadePostArtigo(artigosSalvos.length);
+
+    const noticiasSalvas = postsSalvos.filter(post => post.type === "noticia");
+    setQuantidadePostNoticia(noticiasSalvas.length);
+
+    const tutoriaisSalvos = postsSalvos.filter(post => post.type === "tutorial");
+    setQuantidadePostTutorial(tutoriaisSalvos.length);
+
+    const entrevistasSalvas = postsSalvos.filter(post => post.type === "entrevista");
+    setQuantidadePostEntrevista(entrevistasSalvas.length);
+
+
   }, []);
+
 
   function SalvarNovoPost(e) {
     e.preventDefault();
@@ -75,6 +94,10 @@ function App() {
 
         <h1>Painel de Gerenciamento</h1>
         <p>Total de posts: <strong>{quantidadePosts}</strong></p>
+        <p><strong>Artigos:</strong>{quantidadePostArtigo}</p>
+        <p><strong>Noticias:</strong>{quantidadePostNoticia}</p>
+        <p><strong>Tutoriais:</strong>{quantidadePostTutorial}</p>
+        <p><strong>Entrevistas:</strong>{quantidadePostEntrevista}</p>
 
         <form className='form' onSubmit={SalvarNovoPost}>
 
