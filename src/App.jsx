@@ -42,6 +42,7 @@ function App() {
 
     }else{
       const novoPost = {
+        id: Math.random().toString(36).substring(2, 9),
         titulo,
         descricao,
         url,
